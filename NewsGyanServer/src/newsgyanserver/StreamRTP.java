@@ -88,16 +88,16 @@ public class StreamRTP {
      * @param musique
      * @throws Exception
      */
-     void start(String address, int port, String music) throws Exception {
+     void start(String IPaddress, int port, String mediaPath) throws Exception {
         mediaListPlayer = factory.newMediaListPlayer();
-        String mediaOptions = formatRtpStream(address, port);
-        playList.addMedia(music, mediaOptions);
+        String mediaOptions = formatRtpStream(IPaddress, port);
+        playList.addMedia(mediaPath, mediaOptions);
         // Attach the play-list to the media list player
         mediaListPlayer.setMediaList(playList);
         mediaListPlayer.setMode(MediaListPlayerMode.LOOP);
         // Finally, start the media player
         mediaListPlayer.play();
-        System.out.println("Streaming started at rtp://" + address + ":" + port);
+        System.out.println("Streaming started at rtp://" + IPaddress + ":" + port);
 
         Thread.currentThread().join(); // Don't exit
     }

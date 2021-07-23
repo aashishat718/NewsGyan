@@ -586,6 +586,11 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_downloadsButtonActionPerformed
 
     private void showProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showProfileButtonActionPerformed
+        if(!checkIfLoggedIn()) {
+            JOptionPane.showMessageDialog(null , "Please login to view profile");
+            return;
+        }
+        
         Profile profile = new Profile();
         profile.setVisible(true);
         profile.pack();
@@ -593,6 +598,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_showProfileButtonActionPerformed
 
     private void signOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutButtonActionPerformed
+        if(!checkIfLoggedIn()) {
+            JOptionPane.showMessageDialog(null , "Not logged in!");
+            return;
+        }
         
         int result = JOptionPane.showConfirmDialog(null,"Sure? You want to signout?"," NewsGyan",
                         JOptionPane.YES_NO_OPTION,
@@ -925,6 +934,10 @@ public class Home extends javax.swing.JFrame {
             //System.exit(0);
             }
         });
+    }
+
+    private boolean checkIfLoggedIn() {
+        return User.getInstance().getUserName() != null;
     }
      
 }

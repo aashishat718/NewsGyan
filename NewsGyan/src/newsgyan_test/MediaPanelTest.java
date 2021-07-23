@@ -31,7 +31,7 @@ import uk.co.caprica.vlcj.runtime.x.LibXUtil;
 
     public class MediaPanelTest {
 
-        public static void main(final String[] args) {
+        public static void main(final String[] args) {           
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -117,5 +117,5 @@ import uk.co.caprica.vlcj.runtime.x.LibXUtil;
             sb.append(serverPort);
             return sb.toString();
     }
-        
+    
 }
